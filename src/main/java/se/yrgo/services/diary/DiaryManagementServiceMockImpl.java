@@ -2,8 +2,13 @@ package se.yrgo.services.diary;
 
 import java.util.*;
 
+import org.springframework.stereotype.*;
+import org.springframework.transaction.annotation.*;
+
 import se.yrgo.domain.Action;
 
+@Service
+@Transactional
 public class DiaryManagementServiceMockImpl implements DiaryManagementService {
 
 	private Set<Action> allActions = new HashSet<Action>();

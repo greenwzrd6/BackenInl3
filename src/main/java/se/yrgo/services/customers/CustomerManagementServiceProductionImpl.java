@@ -2,12 +2,19 @@ package se.yrgo.services.customers;
 
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import org.springframework.transaction.annotation.*;
+
 import se.yrgo.dataaccess.*;
 import se.yrgo.domain.*;
 
+@Service
+@Transactional
 public class CustomerManagementServiceProductionImpl implements CustomerManagementService {
     private CustomerDao customerDao;
 
+    @Autowired
     public CustomerManagementServiceProductionImpl(CustomerDao customerDao) {
         this.customerDao = customerDao;
     }

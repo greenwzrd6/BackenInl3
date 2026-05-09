@@ -2,15 +2,22 @@ package se.yrgo.services.calls;
 
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import org.springframework.transaction.annotation.*;
+
 import se.yrgo.dataaccess.*;
 import se.yrgo.domain.*;
 import se.yrgo.services.customers.*;
 import se.yrgo.services.diary.*;
 
+@Service
+@Transactional
 public class CallHandlingServiceImpl implements CallHandlingService {
     private CustomerManagementService customerService;
     private DiaryManagementService diaryService;
 
+    @Autowired
     public CallHandlingServiceImpl(CustomerManagementService customerService, DiaryManagementService diaryService) {
         this.customerService = customerService;
         this.diaryService = diaryService;

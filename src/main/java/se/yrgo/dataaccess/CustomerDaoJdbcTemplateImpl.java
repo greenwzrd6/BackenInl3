@@ -6,11 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.*;
 
 import se.yrgo.domain.*;
 
+@Repository
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
     private static final String DELETE_SQL = "DELETE FROM Customers WHERE customer_id=?";
     private static final String UPDATE_SQL = "UPDATE Customers SET company_name=?, email=?, telephone=?, notes=? WHERE customer_id=?";
@@ -23,6 +26,7 @@ public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
     private JdbcTemplate template;
 
+    @Autowired
     public CustomerDaoJdbcTemplateImpl(JdbcTemplate template) {
         this.template = template;
         createTables();
